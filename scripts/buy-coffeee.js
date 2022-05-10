@@ -15,6 +15,7 @@ async function printBalances(address){
   let idx = 0;
   for (const address of addresses){
     console.log(`Address ${idx} balance` , await getBalance(address));
+    idx++;
   }
 }
 
@@ -31,20 +32,25 @@ async function printMemos(memos){
 
 
 async function main() {
-  // Hardhat always runs the compile task when running scripts with its command
-  // line interface.
-  //
-  // If this script is run directly using `node` you may want to call compile
-  // manually to make sure everything is compiled
-  // await hre.run('compile');
+  //Get example accounts.
+  const [owner, tipper1, tipper2] = await hre.ethers.getSigners();
 
-  // We get the contract to deploy
-  const Greeter = await hre.ethers.getContractFactory("Greeter");
-  const greeter = await Greeter.deploy("Hello, Hardhat!");
+  //Get the conrtract to deploy
+  const BuyMeACoffee = await hre.ethers.getContractFactory("BuyMeACofffe")
+  //Deploy contract
 
-  await greeter.deployed();
+  //Check the balance before the cofee purchase
 
-  console.log("Greeter deployed to:", greeter.address);
+  //Buy the owner a few coffess
+
+  //Check balances after coffee purcharse
+
+  //Check balance after withdraw
+
+  //read all the memos
+
+
+
 }
 
 // We recommend this pattern to be able to use async/await everywhere

@@ -3,9 +3,9 @@ pragma solidity ^0.8.0;
 
 
 
-contract BueMeACofffe {
+contract BuyMeACofffe {
 
-    event NewMemi(
+    event NewMemo(
         address indexed from,
         uint256 timestamp,
         string name,
@@ -23,12 +23,12 @@ contract BueMeACofffe {
 
     address payable owner;
 
-    construct(){
+    constructor(){
         owner = payable(msg.sender);
 
     }
 
-    /**
+    /*
     *@dev comprar un cafe al dueño
     @parametro _name nombre del comprador de cafe
     @parametro _message el mensaje que envia el comprador del cafe
@@ -38,19 +38,19 @@ contract BueMeACofffe {
         require(msg.value >0,"no puedes comprar un cafe con 0 eth");
         
         //agregar el memo al almacenamiento
-        memo.push(Memo(
+        memos.push( Memo(
             msg.sender,
             block.timestamp,
-            _name;
-            _message;   
-        ));
+            _name,
+            _message   
+            ));
 
         //enviamos un log de evento cuando un nuevo memo es creado
         emit NewMemo(
             msg.sender,
             block.timestamp,
-            _name;
-            _message; 
+            _name,
+            _message 
             );
     }
 
